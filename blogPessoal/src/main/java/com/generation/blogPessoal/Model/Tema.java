@@ -12,7 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="tb_temas")
@@ -22,7 +22,7 @@ public class Tema {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank(message="O atributo descrição é obrigatório")
+	@NotNull(message="O atributo descrição é obrigatório")
 	private String descricao;
 	
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="tema", cascade=CascadeType.REMOVE)
