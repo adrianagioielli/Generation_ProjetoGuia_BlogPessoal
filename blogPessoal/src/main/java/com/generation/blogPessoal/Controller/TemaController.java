@@ -1,5 +1,5 @@
 package com.generation.blogPessoal.Controller;
-/*
+
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +46,7 @@ public class TemaController {
 	@GetMapping("/descrica/{descricao}")
 	public ResponseEntity<List<Tema>> getByTitle(@PathVariable String descricao){
 		return ResponseEntity.ok(temaRepository
-				.findAllByDescricaoContainigIgnoreCase(descricao));
+				.findAllByDescricaoContainingIgnoreCase(descricao));
 	}
 	
 	@PostMapping
@@ -74,4 +74,3 @@ public class TemaController {
 	}
 
 }
-*/
