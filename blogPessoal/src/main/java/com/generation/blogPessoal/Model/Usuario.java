@@ -42,7 +42,26 @@ public class Usuario {
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="usuario", cascade=CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
-
+	
+	
+	//construtor com todos os atributos da classe
+	//o criador automático cria o método inclusive com as anotações, isso pode ser retirado
+	public Usuario(Long id, String nome, String usuario, String senha, String foto, List<Postagem> postagem) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+		this.postagem = postagem;
+	}
+	
+	//construtor vazio
+	public Usuario() {
+	}
+	
+	
+	//getters e setters
 	public Long getId() {
 		return id;
 	}
