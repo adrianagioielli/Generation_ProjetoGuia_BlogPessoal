@@ -13,7 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.generation.blogPessoal.Model.Usuario;
 import com.generation.blogPessoal.Repository.UsuarioRepository;
 
-
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService{
 	
 	@Autowired
@@ -23,10 +23,13 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		Optional<Usuario> usuario = usuarioRepository.findByUsuario(userName);
 
-		if (usuario.isPresent())
+		if (usuario.isPresent()) {
 			return new UserDetailsImpl(usuario.get());
-		else
+		}
+		else {
 			throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+		}
+			
 	}
 
 }
